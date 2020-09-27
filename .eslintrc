@@ -1,0 +1,120 @@
+{
+    "parser": "@babel/eslint-parser",
+    "rules": {
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ],
+        "max-len": [
+            "error",
+            {
+                "code": 100,
+                "tabWidth": 2
+            }
+        ],
+        "no-multiple-empty-lines": [
+            "error",
+            {
+                "max": 1,
+                "maxEOF": 0,
+                "maxBOF": 0
+            }
+        ],
+        "no-use-before-define": "error",
+        "prefer-const": [
+            "error",
+            {
+                "destructuring": "any",
+                "ignoreReadBeforeAssign": false
+            }
+        ],
+        "react/prop-types": [
+            2
+        ],
+        "react/no-array-index-key": [
+            1
+        ],
+        "class-methods-use-this": "error",
+        "prefer-arrow-callback": "error",
+        "no-useless-constructor": "error",
+        "no-unused-vars": "error",
+        "no-undef": "error",
+        "no-undef-init": "error",
+        "no-underscore-dangle": [
+            "error",
+            {
+                "allow": [
+                    "__mocks__"
+                ]
+            }
+        ],
+        "no-return-assign": [
+            "error",
+            "always"
+        ],
+        "no-param-reassign": "error",
+        "no-shadow": "error", // need to check again later about the properties
+        "no-console": "off",
+        "no-cond-assign": [
+            "error",
+            "always"
+        ],
+        "camelcase": "error"
+    },
+    "env": {
+        "es6": true,
+        "browser": true,
+        "node": true
+    },
+    "parserOptions": {
+        "requireConfigFile": false,
+        "sourceType": "module"
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "prettier/react",
+        "prettier/standard",
+        "prettier/unicorn"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".json"
+                ]
+            }
+        },
+        "react": {
+            "pragma": "React",
+            "version": "detect"
+        },
+        "propWrapperFunctions": [
+            "forbidExtraProps",
+            {
+                "property": "freeze",
+                "object": "Object"
+            }
+        ],
+        "linkComponents": [
+            {
+                "name": "Link",
+                "linkAttribute": "to"
+            }
+        ]
+    }
+}
