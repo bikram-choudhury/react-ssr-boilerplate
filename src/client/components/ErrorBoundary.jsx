@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 class ErrorBoundary extends Component {
   constructor() {
+    super();
     this.state = { error: null, errorInfo: null };
   }
 

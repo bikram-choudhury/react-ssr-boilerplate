@@ -9,6 +9,10 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
+                resolve: {
+                    // Tell webpack to run all files with both exts
+                    extensions: [".js", ".jsx"]
+                },
                 options: {
                     presets: [
                         '@babel/preset-react',
