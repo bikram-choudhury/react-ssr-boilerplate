@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf build",
+    "clean": "rimraf build public/bundle.js",
     "webpack": "webpack --mode=development",
     "babel": "babel src -d build/src && babel index.js -d build",
-    "dev": "run-s babel webpack",
-    "start": "node build/index.js"
+    "dev": "run-s clean babel webpack",
+    "start": "npm run dev && node build/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -28,6 +28,7 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^6.2.0",
     "webpack-cli": "^3.3.12"
   }
 }

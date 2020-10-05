@@ -1,3 +1,5 @@
 node_modules
 build
+public/*.js
+public/*.js.map
 .vscode

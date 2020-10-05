@@ -7,6 +7,7 @@ import getTodos from './src/todos';
 import express from 'express';
 import serializeJavascript from 'serialize-javascript';
 
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.static('./public'));
@@ -34,6 +35,6 @@ app.get('**', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log("server listening 3000");
+app.listen(PORT, () => {
+    console.log(`server listening ${PORT}`);
 });
