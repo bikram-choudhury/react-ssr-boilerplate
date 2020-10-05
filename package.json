@@ -1,0 +1,33 @@
+{
+  "name": "react-ssr-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf build",
+    "webpack": "webpack --mode=development",
+    "babel": "babel src -d build/src && babel index.js -d build",
+    "dev": "run-s babel webpack",
+    "start": "node build/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/polyfill": "^7.11.5",
+    "express": "^4.17.1",
+    "isomorphic-fetch": "^3.0.0",
+    "npm-run-all": "^4.1.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "serialize-javascript": "^5.0.1",
+    "webpack": "^4.44.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "webpack-cli": "^3.3.12"
+  }
+}
