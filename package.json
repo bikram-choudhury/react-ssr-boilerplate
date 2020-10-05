@@ -1,7 +1,7 @@
 {
   "name": "react-ssr-boilerplate",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "React Server Side Rendering with out any route or store",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf build public/bundle.js",
@@ -10,7 +10,7 @@
     "dev": "run-s clean babel webpack",
     "start": "npm run dev && node build/index.js"
   },
-  "author": "",
+  "author": "Bikram Choudhury(https://github.com/bikram-choudhury)",
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.11.5",
