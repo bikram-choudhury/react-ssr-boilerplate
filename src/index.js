@@ -27,10 +27,14 @@ app.get('*', (request, response) => {
 
     // Checks the given path, matches with component and returns array of items about to be rendered
     const routes = matchRoutes(Routes, request.path);
-    const context = {};
-    const content = renderer(request, context);
+    const promises = routes.map(({ route }) => route.loadData ? route.loadData() : Promise.resolve(null));
 
-    response.send(content);
+    Promise.all(promises).then(dataArr => {
+        const context = { data: dataArr[1] };
+        const content = renderer(request, context);
+
+        response.send(content);
+    });
 });
 
 app.listen(port, () => {

@@ -4,8 +4,10 @@ import { renderRoutes } from 'react-router-config';
 import { StaticRouter } from 'react-router-dom';
 import Routes from '../client/routes';
 import { Helmet } from 'react-helmet';
+import serialize from 'serialize-javascript';
 
 export default (request, context) => {
+    const preloadData = context.data;
     const content = renderToString(
         <StaticRouter context={context} location={request.path}>
             {renderRoutes(Routes)}
@@ -23,6 +25,9 @@ export default (request, context) => {
                 </head>
                 <body>
                     <div id="root">${content}</div>
+                    <script>
+                        window.__PRELOADED_DATA__ = ${serialize(preloadData).replace(/</g, '\\u003c')}
+                    </script>
                     <script src="/bundle.js"></script>
                     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
                 </body>
