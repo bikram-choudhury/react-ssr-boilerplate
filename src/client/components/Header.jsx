@@ -1,18 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <div
-      className="nav-fixed"
-      style={{
-        backgroundColor: "red",
-        display: "flex",
-        flexDirection: "row-reverse",
-        height: "10vh",
-      }}
-    >
-      Header
-    </div>
+    <nav>
+      <div className="nav-wrapper">
+        <Link className="brand-logo" to="/">
+          Logo
+        </Link>
+        <ul id="nav-mobile" className="right hide-on-med-and-down">
+          <li>
+            <Link to="/posts">Posts</Link>
+          </li>
+          <li>
+            <Link to="/todos">Todos</Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 }
 

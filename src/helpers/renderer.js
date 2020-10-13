@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet';
 export default (request, context) => {
     const content = renderToString(
         <StaticRouter context={context} location={request.path}>
-            <div>{renderRoutes(Routes)}</div>
+            {renderRoutes(Routes)}
         </StaticRouter>
     );
     const helmet = Helmet.renderStatic();
@@ -19,6 +19,7 @@ export default (request, context) => {
                     ${helmet.link.toString()}
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                    <link rel="stylesheet" href="/main.css" />
                 </head>
                 <body>
                     <div id="root">${content}</div>

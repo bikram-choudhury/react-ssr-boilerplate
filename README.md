@@ -4,7 +4,7 @@
 
 Webpack plugins
 - npm install webpack webpack-dev-server webpack-merge webpack-node-externals uglifyjs-webpack-plugin compression-webpack-plugin
-- npm install -D webpack-cli webpack-bundle-analyzer babel-minify-webpack-plugin css-loader postcss-loader sass-loader url-loader file-loader mini-css-extract-plugin
+- npm install -D webpack-cli webpack-bundle-analyzer babel-minify-webpack-plugin css-loader postcss-loader sass-loader url-loader file-loader mini-css-extract-plugin node-sass autoprefixer
 
 eslint plugins
 

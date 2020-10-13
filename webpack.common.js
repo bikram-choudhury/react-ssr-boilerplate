@@ -31,7 +31,7 @@ module.exports = {
                         },
                     },
                     'css-loader',
-                    'postcss-loader',
+                    // 'postcss-loader',
                     'sass-loader',
                 ],
             }, {
@@ -57,5 +57,11 @@ module.exports = {
                 ],
             }
         ]
-    }
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[name].css'
+        }),
+    ]
 }

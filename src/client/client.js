@@ -6,10 +6,11 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import Routes from './routes';
+import './style.css';
 
 ReactDOM.hydrate(
     <BrowserRouter>
-        <div>{renderRoutes(Routes)}</div>
+        {renderRoutes(Routes)}
     </BrowserRouter>,
     document.querySelector('#root')
 );
