@@ -5,14 +5,17 @@ import { StaticRouter } from 'react-router-dom';
 import Routes from '../client/routes';
 import { Helmet } from 'react-helmet';
 import serialize from 'serialize-javascript';
+import { Provider } from 'react-redux';
 
-export default (request, context) => {
-    const preloadData = context.data;
+export default (request, store, context) => {
     const content = renderToString(
-        <StaticRouter context={context} location={request.path}>
-            {renderRoutes(Routes)}
-        </StaticRouter>
+        <Provider store={store}>
+            <StaticRouter context={context} location={request.path}>
+                {renderRoutes(Routes)}
+            </StaticRouter>
+        </Provider>
     );
+    const preloadData = store.getState();
     const helmet = Helmet.renderStatic();
     return `<!DOCTYPE html>
                 <head>
