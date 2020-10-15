@@ -10,10 +10,10 @@ function Header() {
         </Link>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li>
-            <Link to="/posts">Posts</Link>
+            <Link to="/todos">Todos</Link>
           </li>
           <li>
-            <Link to="/todos">Todos</Link>
+            <Link to="/posts">Posts</Link>
           </li>
         </ul>
       </div>

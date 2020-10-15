@@ -7,19 +7,55 @@ function Todos(props) {
     const { fetchTodos, todos } = props;
 
     useEffect(() => {
-        if (!(todos && todos.length)) {
+        if (!todos.length) {
             fetchTodos();
         }
     }, [fetchTodos]);
 
+    const renderTodos = () => {
+        const left = [];
+        const right = [];
+
+        for (let index = 0; index < todos.length; index++) {
+            if (index % 2 === 0)
+                left.push(
+                    <a
+                        key={todos[index].id}
+                        href="#!"
+                        className="collection-item"
+                        onClick={(e) => e.preventDefault()}
+                    >
+                        <span className="new badge" data-badge-caption={todos[index].completed}></span>
+                        {todos[index].title}
+                    </a>
+                );
+            else
+                right.push(
+                    <a
+                        key={todos[index].id}
+                        href="#!"
+                        className="collection-item"
+                        onClick={(e) => e.preventDefault()}
+                    >
+                        <span className="new badge" data-badge-caption={todos[index].completed}></span>
+                        {todos[index].title}
+                    </a>
+                );
+        }
+        return (
+            <div className="collection">
+                <div className="row">
+                    <div className="col s12 m6">{left}</div>
+                    <div className="col s12 m6">{right}</div>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <Fragment>
             <h2>Todos</h2>
-            <ul>
-                {
-                    todos.map(todo => (<li key={todo.id}>{todo.title}</li>))
-                }
-            </ul>
+            {renderTodos()}
         </Fragment>
     );
 }
