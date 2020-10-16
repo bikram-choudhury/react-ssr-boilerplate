@@ -9,6 +9,11 @@
   flex: 1;
 }
 
+.header {
+  display: flex;
+  align-items: flex-end;
+}
+
 .card {
   height: 400px;
 }
@@ -24,4 +29,7 @@
 
 .card .card-content .card-title {
   font-size: 20px;
+}
+.card .card-content pre {
+  white-space: pre-wrap;
 }

@@ -1,9 +1,11 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 import { fetchCountries } from './../actions';
 import { connect } from "react-redux";
 
 function Countries({ countries, fetchCountries }) {
+
+  const [countryData, setCountryData] = useState(countries);
 
   useEffect(() => {
     if (!countries.length) {
@@ -11,12 +13,34 @@ function Countries({ countries, fetchCountries }) {
     }
   }, []);
 
+  const handleChange = (event) => {
+    const search = event.target.value;
+    if (search) {
+      const regex = new RegExp('^' + search, 'i');
+      const filteredData = countries.filter(country => regex.test(country.name));
+      setCountryData(filteredData);
+    } else {
+      setCountryData(countries);
+    }
+  };
+
   return (
     <Fragment>
-      <h2>Countries</h2>
+      <div className="row header">
+        <h2>Countries</h2>
+        <div className="input-field col s6">
+          <input
+            placeholder="Search Country"
+            type="text"
+            className="search-input"
+            onChange={handleChange}
+          />
+        </div>
+      </div>
+
       <div className="row">
         {
-          countries.map(country => {
+          countryData.map(country => {
             return (
               <div key={country.name} className="col s12 m6 l4">
                 <div className="card">
@@ -31,6 +55,7 @@ function Countries({ countries, fetchCountries }) {
                     <pre>Region: {country.region}</pre>
                     <pre>Capital: {country.capital}</pre>
                     <pre>Population: {country.population.toLocaleString()}</pre>
+                    <pre>Currency: {country.currencies[0].name} - {country.currencies[0].code}</pre>
                   </div>
                 </div>
               </div>
