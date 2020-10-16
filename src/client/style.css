@@ -8,3 +8,20 @@
 .wrapper .container {
   flex: 1;
 }
+
+.card {
+  height: 400px;
+}
+
+.card .card-image .btn-floating.halfway-fab {
+  text-align: center;
+}
+
+.card .card-image img {
+  height: 150px;
+  object-fit: cover;
+}
+
+.card .card-content .card-title {
+  font-size: 20px;
+}
